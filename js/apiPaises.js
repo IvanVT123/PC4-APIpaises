@@ -67,23 +67,21 @@ searchInput.addEventListener("input", (e) => {
   });
 });
 
-// Search functionality
 searchInput.addEventListener("input", (e) => {
     const query = e.target.value.trim().toLowerCase();
     const countryCards = document.querySelectorAll(".card");
-    let matches = 0; // Contador de coincidencias
+    let matches = 0;
   
     countryCards.forEach(card => {
       const countryName = card.querySelector(".card-title").textContent.toLowerCase();
       if (countryName.includes(query)) {
         card.parentElement.classList.remove("d-none");
-        matches++; // Incrementa el contador si hay coincidencia
+        matches++;
       } else {
         card.parentElement.classList.add("d-none");
       }
     });
   
-    // Mostrar u ocultar el mensaje de error
     if (matches === 0) {
       errorMessage.classList.remove("d-none");
     } else {
